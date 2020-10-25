@@ -1,8 +1,9 @@
 # Apache Kafka ハンズオン
 
-## ビルド方法
+## 実行方法
 
 ```
-docker run --rm -u gradle -v "$PWD":/home/gradle/project -w /home/gradle/project gradle gradle
+docker run --rm -u gradle -v "$PWD":/home/gradle/project -w /home/gradle/project gradle \
+    gradle compileJava run
 ```
 
