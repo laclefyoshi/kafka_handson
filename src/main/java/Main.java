@@ -6,5 +6,6 @@ public class Main {
     private static void runCousumer() {
         Consumer c = new Consumer();
         c.run();
+        // c.test();
     }
 }
