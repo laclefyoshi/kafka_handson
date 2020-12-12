@@ -22,23 +22,28 @@ services:
       - JMX_PORT=12345
     depends_on:
       - zookeeper
-  kafdrop:
-    image: 'docker.io/obsidiandynamics/kafdrop:3.27.0'
-    ports:
-      - '9000:9000'
-    environment:
-      - KAFKA_BROKERCONNECT=kafka:9092
   kafka_manager:
    image: hlebalbau/kafka-manager:stable
    ports:
      - '9001:9000'
    environment:
      - ZK_HOSTS=zookeeper:2181
-
+  postgres:
+   image: docker.io/bitnami/postgresql:13-debian-10
+   ports:
+     - '5432:5432'
+   volumes:
+     - 'postgresql_data:/bitnami/postgresql'
+   environment:
+     - POSTGRESQL_USERNAME=myuser
+     - POSTGRESQL_PASSWORD=passw0rd
+     - POSTGRESQL_DATABASE=mydb
 
 
 volumes:
   zookeeper_data:
     driver: local
   kafka_data:
+    driver: local
+  postgresql_data:
     driver: local
