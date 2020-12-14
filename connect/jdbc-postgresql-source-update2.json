@@ -1,0 +1,16 @@
+{
+    "connector.class": "io.confluent.connect.jdbc.JdbcSourceConnector",
+    "connection.url": "jdbc:postgresql://postgresql:5432/mydb",
+    "connection.user": "myuser",
+    "connection.password": "passw0rd",
+    "numeric.mapping": "best_fit",
+    "table.whitelist" : "public.testtable",
+    "mode": "incrementing",
+    "incrementing.column.name": "id",
+    "tasks.max": "1",
+    "topic.prefix": "jdbctopic-",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "transforms": "ReplaceField",
+    "transforms.ReplaceField.type": "org.apache.kafka.connect.transforms.ReplaceField$Value",
+    "transforms.ReplaceField.blacklist": "tel"
+}

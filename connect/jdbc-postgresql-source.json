@@ -1,0 +1,14 @@
+{
+  "name": "postgresql-source",
+  "config": {
+    "connector.class": "io.confluent.connect.jdbc.JdbcSourceConnector",
+    "connection.url": "jdbc:postgresql://postgresql:5432/mydb",
+    "connection.user": "myuser",
+    "connection.password": "passw0rd",
+    "numeric.mapping": "best_fit",
+    "table.whitelist" : "public.testtable",
+    "mode":"bulk",
+    "tasks.max": "1",
+    "topic.prefix": "jdbctopic-"
+  }
+}
